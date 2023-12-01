@@ -1,0 +1,8 @@
+<!-- formTemplate.hbs -->
+<form>
+  {{#each fields}}
+    <label for="{{this.name}}">{{this.label}}</label>
+    <input type="{{this.type}}" id="{{this.name}}" name="{{this.name}}" />
+  {{/each}}
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "c9bc9fb9-d13f-42e9-9b73-66ffd54183ba",
+    "status": 1,
+    "sort": "1",
+    "created_at": "2023-05-17T03:28:32.102Z",
+    "modified_at": null,
+    "creator_id": "00000000-0000-0000-0000-000000000000",
+    "modifier_id": null,
+    "system_name": "Novus CRM",
+    "terms_and_conditions": "<p style=\"text-align: right;\"><u>Terms and Conditions</u></p>",
+    "privacy_policy": "<p><i><b><u>Privacy here</u></b></i></p>",
+    "from_email": "no-reply@pelicansolution.com",
+    "from_email_display": null,
+    "to_email": null,
+    "to_email_display": null,
+    "maximum_session_age": null,
+    "maximum_reset_password_age": null,
+    "description": "<p style=\"text-align: center;\"><b>About us</b></p>"
+  }
+]
