@@ -1,0 +1,20 @@
+package main
+
+import (
+	"golangtemplate/controller"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	router := gin.Default()
+	router.Use(cors.Default())
+
+	public := router.Group("/api")     
+
+    {{{route_content}}}
+
+	router.Static("/assets", "./assets")
+	router.Run(":2000")
+}
