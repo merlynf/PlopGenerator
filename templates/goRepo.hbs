@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package repository
 
 import (
@@ -92,3 +93,99 @@ func Delete{{table_name}}(request models.{{table_name}}) (string, error) {
 }
 
 
+=======
+package repository
+
+import (
+	"{{project_name}}/models"
+	"log"
+	"time"
+
+	uuid "github.com/satori/go.uuid"
+)
+
+func GetAll{{table_name}}(request models.{{table_name}}) ([]models.{{table_name}}, error) {
+	db, err := models.Connectdb()
+	if err != nil {
+		panic(err)
+	}
+
+	var obj []models.{{table_name}}
+
+	result := db.Table("{{param_table}}").Scan(&obj)
+	if result.Error != nil {
+		log.Fatal(result.Error)
+	}
+	return obj, err
+}
+
+func Get{{table_name}}(request models.{{table_name}}) (models.{{table_name}}, error) {
+	db, err := models.Connectdb()
+	if err != nil {
+		panic(err)
+	}
+
+	var obj = models.{{table_name}}{Id: request.Id}
+	result := db.Find(&obj)
+	if result.Error != nil {
+		log.Fatal(result.Error)
+	}
+
+	return obj, err
+}
+
+func Create{{table_name}}(request models.{{table_name}}) (string, error) {
+	db, err := models.Connectdb()
+	if err != nil {
+		panic(err)
+	}
+
+    var message string
+	{{!-- var obj = models.{{table_name}}{} --}}
+
+	request.Id = (uuid.NewV4()).String()
+	request.CreatedAt = time.Now()
+    
+	result := db.Create(&request)
+    if result.Error == nil {
+        message = "data has been successfully added."
+    }
+
+	return message, err
+}
+
+func Update{{table_name}}(request models.{{table_name}}) (string, error) {
+	db, err := models.Connectdb()
+	if err != nil {
+		panic(err)
+	}
+    var message string
+	var obj = models.{{table_name}}{}
+
+	result := db.Model(&obj).Where("id = ?", request.Id).Updates(&request)
+    if result.Error == nil {
+        message = "data has been successfully updated."
+    }
+
+	return message, err
+}
+
+func Delete{{table_name}}(request models.{{table_name}}) (string, error) {
+	db, err := models.Connectdb()
+	if err != nil {
+		panic(err)
+	}
+
+    var message string
+	var obj = models.{{table_name}}{}
+	
+	result := db.Model(&obj).Where("id = ?", request.Id).Update("status", 0)
+    if result.Error == nil {
+        message = "data has been successfully deleted."
+    }
+
+	return message, err
+}
+
+
+>>>>>>> 825669866ae664c02c2458fa6ffb9a4208070fac
