@@ -1,0 +1,9 @@
+package models
+
+import "time"
+
+type {{ table_name }} struct {
+	 {{#each columns as |column|}}
+	{{column.column_name}} {{golangType column.data_type column.max_length}} `json:"{{column.json_column_name}}"{{#if column.is_nullable}},omitempty{{/if}}`
+	{{/each}}
+  }
