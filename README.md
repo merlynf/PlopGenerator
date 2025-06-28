@@ -15,13 +15,3 @@ Manually writing Go boilerplate can be repetitive and error-prone. With PlopGene
 - 🛠️ Simplify repetitive project setup tasks
 - 📁 Organize reusable templates for various Go use cases (e.g., structs, handlers, services)
 
-
-## 📁 Project Structure
-PlopGenerator/
-- ├── generated/ # Output directory where generated files go
-- ├── node_modules/ # Project dependencies
-- ├── templates/ # Custom plop templates for code generation
-- ├── .env # Environment configuration (if used)
-- ├── package.json # Project metadata and script definitions
-- ├── package-lock.json # Locked dependency versions
-- └── plopfile.js # Main Plop configuration file
